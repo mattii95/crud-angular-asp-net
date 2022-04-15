@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row text-center mt-4">
+    <div class="col">
+      <img src="https://p4.wallpaperbetter.com/wallpaper/901/505/133/cats-dogs-pets-wallpaper-preview.jpg" alt=""
+        class="img-fluid" width="200px">
+    </div>
+  </div>
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>CRUD Mascotas</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <label for="txtId" class="from-label">ID</label>
+      <input type="text" name="id" id="txtId" class="form-control" [(ngModel)]="mascota.id" disabled="true">
+    </div>
+    <div class="col-md-4">
+      <label for="txtNombre" class="from-label">Nombre</label>
+      <input type="text" name="id" id="txtNombre" class="form-control" [(ngModel)]="mascota.nombre">
+    </div>
+    <div class="col-md-2">
+      <label for="txtEdad" class="from-label">Edad</label>
+      <input type="text" name="id" id="txtEdad" class="form-control" [(ngModel)]="mascota.edad">
+    </div>
+    <div class="col-md-4">
+      <label for="txtDesc" class="from-label">Descripcion</label>
+      <input type="text" name="id" id="txtDesc" class="form-control" [(ngModel)]="mascota.descripcion">
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn btn-success" type="button" (click)="onAddMascota(mascota)">Agregar</button>
+      <button class="btn btn-warning m-2" type="button" (click)="onUpdateMascota(mascota)">Modificar</button>
+      <button class="btn btn-danger" type="button" (click)="onDeleteMascota(mascota.id)">Eliminar</button>
+      <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+    </div>
+    
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <table id="dtMascota" class="table table-striped" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Seleccionar</th>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Descripcion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable">
+            <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+            <td> {{ item.idMascota }} </td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.edad }}</td>
+            <td>{{ item.descripcion }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
